@@ -1,0 +1,46 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.tanisha.helloworldplugin</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-name -->
+    <name>HelloWorldPlugin</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor url="https://github.com/Taniiiishaaa">Tanisha</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-description -->
+    <description><![CDATA[
+     <p>Simple “Hello World” action that appears in Tools menu, Editor popup, and Project View popup.</p>
+<ul>
+  <li>Demonstrates actions and menus</li>
+  <li>Great starter template</li>
+</ul>
+    ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <change-notes><![CDATA[
+<ul>
+  <li>1.0.0 – Initial release</li>
+</ul>
+]]></change-notes>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+
+    </extensions>
+
+    <actions>
+        <action id="helloworld" class="actions.HelloWorldAction" text="Hello World">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="first"></add-to-group>
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"></add-to-group>
+        </action>
+    </actions>
+</idea-plugin>
