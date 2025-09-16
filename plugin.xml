@@ -5,7 +5,7 @@
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-name -->
-    <name>HelloWorld</name>
+    <name>Hello World</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
     <vendor url="https://github.com/Taniiiishaaa">Tanisha</vendor>
@@ -13,11 +13,14 @@
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-description -->
     <description><![CDATA[
-     <p>Simple “Hello World” action that appears in Tools menu, Editor popup, and Project View popup.</p>
+    Hello World adds a simple action to the Tools and context menus, demonstrating a minimal IntelliJ Platform plugin setup.
+<p>
+Features:
 <ul>
-  <li>Demonstrates actions and menus</li>
-  <li>Great starter template</li>
+  <li>Action visible in the Tools menu</li>
+  <li>Action in Editor and Project View popups</li>
 </ul>
+</p>
     ]]></description>
 
     <!-- Product and plugin compatibility requirements.
