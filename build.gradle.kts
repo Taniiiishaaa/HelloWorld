@@ -4,8 +4,6 @@ plugins {
     id("org.jetbrains.intellij.platform") version "2.7.1"
 }
 
-group = "com.Tanisha"
-
 repositories {
     mavenCentral()
     intellijPlatform {
@@ -13,28 +11,32 @@ repositories {
     }
 }
 
-// Configure IntelliJ Platform Gradle Plugin
-// Read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin.html
+// IntelliJ Platform dependencies (v2 DSL)
 dependencies {
     intellijPlatform {
-        create("IC", "2025.1.4.1")
+        // Build against IntelliJ IDEA Community 2025.2.1.
+        // If you build for Ultimate instead, use: create("IU", "2025.2.1")
+        create("IC", "2025.2.1")
+
+        // Platform test framework (optional)
         testFramework(org.jetbrains.intellij.platform.gradle.TestFrameworkType.Platform)
 
-        // Add necessary plugin dependencies for compilation here, example:
+        // Example: bundled plugins (uncomment if needed)
         // bundledPlugin("com.intellij.java")
     }
 }
 
 intellijPlatform {
+    // Keep this in sync with plugin.xml
     pluginConfiguration {
         ideaVersion {
-            sinceBuild = "251"
+            // Target only 2025.2.x builds
+            sinceBuild = "252.0"
+            untilBuild = "252.*"
         }
-
-        changeNotes = """
-            Initial version
-        """.trimIndent()
+        changeNotes = "Version ${project.version}"
     }
+
 }
 
 tasks {
@@ -42,6 +44,11 @@ tasks {
     withType<JavaCompile> {
         sourceCompatibility = "21"
         targetCompatibility = "21"
+    }
+
+    // Disable the task that requires WSL as it's not installed
+    withType<org.jetbrains.intellij.platform.gradle.tasks.BuildSearchableOptionsTask> {
+        enabled = false
     }
 }
 
@@ -51,4 +58,3 @@ kotlin {
         jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
     }
 }
-
